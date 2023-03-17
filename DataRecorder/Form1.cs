@@ -22,8 +22,9 @@ namespace DataRecorder
 
     {
         string folder_path = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy");
-        
-        UdpClient Client = new UdpClient(11111);  // Port Number
+
+
+        UdpClient Client;
 
         // Serial  Text Files
         FileStream objStreamWriter_ch1;
@@ -46,6 +47,7 @@ namespace DataRecorder
             
             // Creating folder for the Text Files
             Directory.CreateDirectory(folder_path);
+           
 
             //Get all the Serial Ports
             string[] ports = SerialPort.GetPortNames();
@@ -57,8 +59,9 @@ namespace DataRecorder
             com_ports_ch4.Items.AddRange(ports);
             com_ports_ch5.Items.AddRange(ports);
             com_ports_ch6.Items.AddRange(ports);
+            
 
-            com_ports_selection(ports.GetLength(0));
+            //com_ports_selection(ports.GetLength(0));
             baud_rate_selection();
             DialogResult obj = MessageBox.Show("Do you want to Edit Parameters?", "Exit", MessageBoxButtons.YesNo);
             if (obj == DialogResult.No)
@@ -101,7 +104,7 @@ namespace DataRecorder
                 serialport_ch1.Open();
                 if (serialport_ch1.IsOpen == true)
                 {
-                    ch1_status.Text = "Serial Port 1 Connected";
+                    ch1_status.Text = "Connected";
                     ch1_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch1 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM1.txt";
@@ -127,7 +130,7 @@ namespace DataRecorder
                 serialport_ch2.Open();
                 if (serialport_ch2.IsOpen == true)
                 {
-                    ch2_status.Text = "Serial Port 2 Connected";
+                    ch2_status.Text = "Connected";
                     ch2_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch2 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM2.txt";
@@ -152,7 +155,7 @@ namespace DataRecorder
                 serialport_ch3.Open();
                 if (serialport_ch3.IsOpen == true)
                 {
-                    ch3_status.Text = "Serial Port 3 Connected";
+                    ch3_status.Text = "Connected";
                     ch3_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch3 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM3.txt";
@@ -177,7 +180,7 @@ namespace DataRecorder
                 serialport_ch4.Open();
                 if (serialport_ch4.IsOpen == true)
                 {
-                    ch4_status.Text = "Serial Port 4 Connected";
+                    ch4_status.Text = "Connected";
                     ch4_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch4 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM4.txt";
@@ -203,7 +206,7 @@ namespace DataRecorder
                 serialport_ch5.Open();
                 if (serialport_ch5.IsOpen == true)
                 {
-                    ch5_status.Text = "Serial Port 5 Connected";
+                    ch5_status.Text = "Connected";
                     ch5_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch5 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM5.txt";
@@ -229,7 +232,7 @@ namespace DataRecorder
                 serialport_ch6.Open();
                 if (serialport_ch6.IsOpen == true)
                 {
-                    ch6_status.Text = "Serial Port 6 Connected";
+                    ch6_status.Text = "Connected";
                     ch6_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
                     string pathfile_ch6 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM6.txt";
@@ -344,7 +347,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch1.Close();
                 serialport_ch1.Close();
-                ch1_status.Text = "Serial Port 1 Disconnected";
+                ch1_status.Text = "Disconnected";
                 ch1_status.ForeColor = System.Drawing.Color.Red;
 
             }
@@ -355,7 +358,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch2.Close();
                 serialport_ch2.Close();
-                ch2_status.Text = "Serial Port 2 Disconnected";
+                ch2_status.Text = "Disconnected";
                 ch2_status.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -365,7 +368,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch3.Close();
                 serialport_ch3.Close();
-                ch3_status.Text = "Serial Port 3 Disconnected";
+                ch3_status.Text = "Disconnected";
                 ch3_status.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -375,7 +378,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch4.Close();
                 serialport_ch4.Close();
-                ch4_status.Text = "Serial Port 4 Disconnected";
+                ch4_status.Text = "Disconnected";
                 ch4_status.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -385,7 +388,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch5.Close();
                 serialport_ch5.Close();
-                ch5_status.Text = "Serial Port 5 Disconnected";
+                ch5_status.Text = "Disconnected";
                 ch5_status.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -395,7 +398,7 @@ namespace DataRecorder
             {
                 objStreamWriter_ch6.Close();
                 serialport_ch6.Close();
-                ch6_status.Text = "Serial Port 6 Disconnected";
+                ch6_status.Text = "Disconnected";
                 ch6_status.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -403,12 +406,17 @@ namespace DataRecorder
         {
             try
             {
+                string pathfile_ethernet = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
+                objStreamWriter_eth1 = new FileStream(pathfile_ethernet, FileMode.Create, FileAccess.Write);
+                Client = new UdpClient(Convert.ToInt32(eth_port.Text));  // Port Number
                 Client.BeginReceive(new AsyncCallback(recv), null);
+                eth_label.Text = "Connected";
+                eth_label.ForeColor = System.Drawing.Color.Green;
             }
 
             catch (Exception ex)
             {
-                data_ethernet.Text += ex.Message.ToString();
+                MessageBox.Show(ex.Message, "Error");
             }
         }
         private void data_in_ch1_TextChanged(object sender, EventArgs e)
@@ -423,7 +431,7 @@ namespace DataRecorder
             baud_rate_ch4.SelectedIndex = 9;
             baud_rate_ch5.SelectedIndex = 9;
             baud_rate_ch6.SelectedIndex = 9;
-        }
+        }   
         void com_ports_selection(int total_ser_ports)
         {
             if (total_ser_ports > 0)
@@ -437,6 +445,71 @@ namespace DataRecorder
             }
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void baud_rate_ch1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void com_ports_ch2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ch2_status_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ch3_status_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void baud_rate_ch3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void com_ports_ch3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void baud_rate_ch4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+   
     }
 }
