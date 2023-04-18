@@ -136,7 +136,6 @@
             this.com_ports_ch1.Name = "com_ports_ch1";
             this.com_ports_ch1.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch1.TabIndex = 0;
-
             // 
             // baud_rate_ch1
             // 
@@ -169,7 +168,6 @@
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "BAUD RATE:";
-
             // 
             // label2
             // 
@@ -220,7 +218,6 @@
             this.com_ports_ch2.Name = "com_ports_ch2";
             this.com_ports_ch2.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch2.TabIndex = 8;
-       
             // 
             // baud_rate_ch2
             // 
@@ -264,7 +261,6 @@
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "COM PORT:";
-            
             // 
             // label4
             // 
@@ -307,7 +303,6 @@
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 18;
             this.label5.Text = "COM PORT:";
-          
             // 
             // label6
             // 
@@ -318,7 +313,6 @@
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "BAUD RATE:";
-           
             // 
             // baud_rate_ch3
             // 
@@ -341,7 +335,6 @@
             this.baud_rate_ch3.Name = "baud_rate_ch3";
             this.baud_rate_ch3.Size = new System.Drawing.Size(121, 21);
             this.baud_rate_ch3.TabIndex = 16;
-            
             // 
             // com_ports_ch3
             // 
@@ -351,7 +344,6 @@
             this.com_ports_ch3.Name = "com_ports_ch3";
             this.com_ports_ch3.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch3.TabIndex = 15;
-      
             // 
             // disc_ch4
             // 
@@ -416,7 +408,6 @@
             this.baud_rate_ch4.Name = "baud_rate_ch4";
             this.baud_rate_ch4.Size = new System.Drawing.Size(121, 21);
             this.baud_rate_ch4.TabIndex = 22;
-        
             // 
             // com_ports_ch4
             // 
@@ -581,7 +572,6 @@
             this.ch2_status.Name = "ch2_status";
             this.ch2_status.Size = new System.Drawing.Size(0, 13);
             this.ch2_status.TabIndex = 40;
- 
             // 
             // ch3_status
             // 
@@ -591,7 +581,6 @@
             this.ch3_status.Name = "ch3_status";
             this.ch3_status.Size = new System.Drawing.Size(0, 13);
             this.ch3_status.TabIndex = 41;
-  
             // 
             // ch4_status
             // 
@@ -664,7 +653,6 @@
             this.groupBox3.TabIndex = 49;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Serial Port 3";
-
             // 
             // groupBox4
             // 
@@ -771,6 +759,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Data Recorder";
             this.Load += new System.EventHandler(this.Form1_Load);

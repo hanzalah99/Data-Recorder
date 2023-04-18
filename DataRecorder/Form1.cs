@@ -15,6 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Net.Mime.MediaTypeNames;
 using System.Collections;
 using System.Reflection.Emit;
+using System.Threading;
 
 namespace DataRecorder
 {
@@ -90,7 +91,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch1.PortName = com_ports_ch1.Text;
+                serialport_ch1.PortName = com_ports_ch1.Text;  //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch1.BaudRate = Convert.ToInt32(baud_rate_ch1.Text);
                 serialport_ch1.Parity = Parity.None;
                 serialport_ch1.DataBits = 8;
@@ -102,7 +103,9 @@ namespace DataRecorder
                     ch1_status.Text = "Connected";
                     ch1_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch1 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM1.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch1 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM1.txt";
+                    //string pathfile_ch1 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM1.txt";
                     objStreamWriter_ch1 = new FileStream(pathfile_ch1, FileMode.Create, FileAccess.Write);
                 } 
      
@@ -116,7 +119,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch2.PortName = com_ports_ch2.Text;
+                serialport_ch2.PortName = com_ports_ch2.Text; //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch2.BaudRate = Convert.ToInt32(baud_rate_ch2.Text);
                 serialport_ch2.Parity = Parity.None;
                 serialport_ch2.DataBits = 8;
@@ -128,7 +131,9 @@ namespace DataRecorder
                     ch2_status.Text = "Connected";
                     ch2_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch2 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM2.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch2 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM2.txt";
+                    //string pathfile_ch2 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM2.txt";
                     objStreamWriter_ch2 = new FileStream(pathfile_ch2, FileMode.Create, FileAccess.Write);
                 }       
             }
@@ -141,7 +146,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch3.PortName = com_ports_ch3.Text;
+                serialport_ch3.PortName = com_ports_ch3.Text; //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch3.BaudRate = Convert.ToInt32(baud_rate_ch3.Text);
                 serialport_ch3.Parity = Parity.None;
                 serialport_ch3.DataBits = 8;
@@ -153,7 +158,9 @@ namespace DataRecorder
                     ch3_status.Text = "Connected";
                     ch3_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch3 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM3.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch3 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM3.txt";
+                    //string pathfile_ch3 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM3.txt";
                     objStreamWriter_ch3 = new FileStream(pathfile_ch3, FileMode.Create, FileAccess.Write);
                 }
             }
@@ -166,7 +173,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch4.PortName = com_ports_ch4.Text;
+                serialport_ch4.PortName = com_ports_ch4.Text; //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch4.BaudRate = Convert.ToInt32(baud_rate_ch4.Text);
                 serialport_ch4.Parity = Parity.None;
                 serialport_ch4.DataBits = 8;
@@ -178,7 +185,9 @@ namespace DataRecorder
                     ch4_status.Text = "Connected";
                     ch4_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch4 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM4.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch4 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM4.txt";
+                    //string pathfile_ch4 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM4.txt";
                     objStreamWriter_ch4 = new FileStream(pathfile_ch4, FileMode.Create, FileAccess.Write);
                 }
                 
@@ -192,7 +201,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch5.PortName = com_ports_ch5.Text;
+                serialport_ch5.PortName = com_ports_ch5.Text; //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch5.BaudRate = Convert.ToInt32(baud_rate_ch5.Text);
                 serialport_ch5.Parity = Parity.None;
                 serialport_ch5.DataBits = 8;
@@ -204,7 +213,9 @@ namespace DataRecorder
                     ch5_status.Text = "Connected";
                     ch5_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch5 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM5.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch5 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM5.txt";
+                    //string pathfile_ch5 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM5.txt";
                     objStreamWriter_ch5 = new FileStream(pathfile_ch5, FileMode.Create, FileAccess.Write);
                 }
                 
@@ -218,7 +229,7 @@ namespace DataRecorder
         {
             try
             {
-                serialport_ch6.PortName = com_ports_ch6.Text;
+                serialport_ch6.PortName = com_ports_ch6.Text; //Replace with COM port name e.g ===> serialport_ch1.PortName = COM1;
                 serialport_ch6.BaudRate = Convert.ToInt32(baud_rate_ch6.Text);
                 serialport_ch6.Parity = Parity.None;
                 serialport_ch6.DataBits = 8;
@@ -230,7 +241,9 @@ namespace DataRecorder
                     ch6_status.Text = "Connected";
                     ch6_status.ForeColor = System.Drawing.Color.Green;
                     //Text File Location and Name
-                    string pathfile_ch6 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM6.txt";
+                    // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                    string pathfile_ch6 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM6.txt";
+                    //string pathfile_ch6 = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " COM6.txt";
                     objStreamWriter_ch6 = new FileStream(pathfile_ch6, FileMode.Create, FileAccess.Write);
                 }           
             }
@@ -393,7 +406,9 @@ namespace DataRecorder
         {
             try
             {
-                string pathfile_ethernet = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
+                // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                string pathfile_ethernet = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
+                //string pathfile_ethernet = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
                 objStreamWriter_eth1 = new FileStream(pathfile_ethernet, FileMode.Create, FileAccess.Write);
                 Client = new UdpClient(Convert.ToInt32(eth_port.Text));  // Port Number
                 Client.BeginReceive(new AsyncCallback(recv), null);
