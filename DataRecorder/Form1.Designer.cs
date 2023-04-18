@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.serialport_ch1 = new System.IO.Ports.SerialPort(this.components);
+            System.Windows.Forms.GroupBox groupBox1;
+            System.Windows.Forms.Label label2;
+            this.disc_ch1 = new System.Windows.Forms.Button();
             this.com_ports_ch1 = new System.Windows.Forms.ComboBox();
             this.baud_rate_ch1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ch1_status = new System.Windows.Forms.Label();
             this.conn_ch1 = new System.Windows.Forms.Button();
-            this.disc_ch1 = new System.Windows.Forms.Button();
+            this.serialport_ch1 = new System.IO.Ports.SerialPort(this.components);
             this.conn_ch2 = new System.Windows.Forms.Button();
             this.com_ports_ch2 = new System.Windows.Forms.ComboBox();
             this.baud_rate_ch2 = new System.Windows.Forms.ComboBox();
@@ -77,8 +79,6 @@
             this.ch5_status = new System.Windows.Forms.Label();
             this.ch6_status = new System.Windows.Forms.Label();
             this.ethernet = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ch1_status = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -89,7 +89,9 @@
             this.eth_label = new System.Windows.Forms.Label();
             this.eth_port = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            label2 = new System.Windows.Forms.Label();
+            groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -97,6 +99,34 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(this.disc_ch1);
+            groupBox1.Controls.Add(this.com_ports_ch1);
+            groupBox1.Controls.Add(this.baud_rate_ch1);
+            groupBox1.Controls.Add(this.label1);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(this.ch1_status);
+            groupBox1.Controls.Add(this.conn_ch1);
+            groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            groupBox1.Location = new System.Drawing.Point(12, 14);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(218, 155);
+            groupBox1.TabIndex = 47;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Serial Port 1";
+            // 
+            // disc_ch1
+            // 
+            this.disc_ch1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.disc_ch1.Location = new System.Drawing.Point(115, 104);
+            this.disc_ch1.Name = "disc_ch1";
+            this.disc_ch1.Size = new System.Drawing.Size(85, 23);
+            this.disc_ch1.TabIndex = 6;
+            this.disc_ch1.Text = "Disconnect ";
+            this.disc_ch1.UseVisualStyleBackColor = true;
+            this.disc_ch1.Click += new System.EventHandler(this.disc_ch1_Click);
             // 
             // com_ports_ch1
             // 
@@ -106,7 +136,7 @@
             this.com_ports_ch1.Name = "com_ports_ch1";
             this.com_ports_ch1.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch1.TabIndex = 0;
-            this.com_ports_ch1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+
             // 
             // baud_rate_ch1
             // 
@@ -129,7 +159,6 @@
             this.baud_rate_ch1.Name = "baud_rate_ch1";
             this.baud_rate_ch1.Size = new System.Drawing.Size(121, 21);
             this.baud_rate_ch1.TabIndex = 1;
-            this.baud_rate_ch1.SelectedIndexChanged += new System.EventHandler(this.baud_rate_ch1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -140,18 +169,26 @@
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "BAUD RATE:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "COM PORT:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(9, 36);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(67, 13);
+            label2.TabIndex = 3;
+            label2.Text = "COM PORT:";
+            // 
+            // ch1_status
+            // 
+            this.ch1_status.AutoSize = true;
+            this.ch1_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ch1_status.Location = new System.Drawing.Point(9, 17);
+            this.ch1_status.Name = "ch1_status";
+            this.ch1_status.Size = new System.Drawing.Size(0, 13);
+            this.ch1_status.TabIndex = 39;
             // 
             // conn_ch1
             // 
@@ -163,17 +200,6 @@
             this.conn_ch1.Text = "Connect ";
             this.conn_ch1.UseVisualStyleBackColor = true;
             this.conn_ch1.Click += new System.EventHandler(this.conn_ch1_Click);
-            // 
-            // disc_ch1
-            // 
-            this.disc_ch1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disc_ch1.Location = new System.Drawing.Point(115, 104);
-            this.disc_ch1.Name = "disc_ch1";
-            this.disc_ch1.Size = new System.Drawing.Size(85, 23);
-            this.disc_ch1.TabIndex = 6;
-            this.disc_ch1.Text = "Disconnect ";
-            this.disc_ch1.UseVisualStyleBackColor = true;
-            this.disc_ch1.Click += new System.EventHandler(this.disc_ch1_Click);
             // 
             // conn_ch2
             // 
@@ -194,7 +220,7 @@
             this.com_ports_ch2.Name = "com_ports_ch2";
             this.com_ports_ch2.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch2.TabIndex = 8;
-            this.com_ports_ch2.SelectedIndexChanged += new System.EventHandler(this.com_ports_ch2_SelectedIndexChanged);
+       
             // 
             // baud_rate_ch2
             // 
@@ -238,7 +264,7 @@
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "COM PORT:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label4
             // 
@@ -281,7 +307,7 @@
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 18;
             this.label5.Text = "COM PORT:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+          
             // 
             // label6
             // 
@@ -292,7 +318,7 @@
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "BAUD RATE:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+           
             // 
             // baud_rate_ch3
             // 
@@ -315,7 +341,7 @@
             this.baud_rate_ch3.Name = "baud_rate_ch3";
             this.baud_rate_ch3.Size = new System.Drawing.Size(121, 21);
             this.baud_rate_ch3.TabIndex = 16;
-            this.baud_rate_ch3.SelectedIndexChanged += new System.EventHandler(this.baud_rate_ch3_SelectedIndexChanged);
+            
             // 
             // com_ports_ch3
             // 
@@ -325,7 +351,7 @@
             this.com_ports_ch3.Name = "com_ports_ch3";
             this.com_ports_ch3.Size = new System.Drawing.Size(121, 21);
             this.com_ports_ch3.TabIndex = 15;
-            this.com_ports_ch3.SelectedIndexChanged += new System.EventHandler(this.com_ports_ch3_SelectedIndexChanged);
+      
             // 
             // disc_ch4
             // 
@@ -390,7 +416,7 @@
             this.baud_rate_ch4.Name = "baud_rate_ch4";
             this.baud_rate_ch4.Size = new System.Drawing.Size(121, 21);
             this.baud_rate_ch4.TabIndex = 22;
-            this.baud_rate_ch4.SelectedIndexChanged += new System.EventHandler(this.baud_rate_ch4_SelectedIndexChanged);
+        
             // 
             // com_ports_ch4
             // 
@@ -555,7 +581,7 @@
             this.ch2_status.Name = "ch2_status";
             this.ch2_status.Size = new System.Drawing.Size(0, 13);
             this.ch2_status.TabIndex = 40;
-            this.ch2_status.Click += new System.EventHandler(this.ch2_status_Click);
+ 
             // 
             // ch3_status
             // 
@@ -565,7 +591,7 @@
             this.ch3_status.Name = "ch3_status";
             this.ch3_status.Size = new System.Drawing.Size(0, 13);
             this.ch3_status.TabIndex = 41;
-            this.ch3_status.Click += new System.EventHandler(this.ch3_status_Click);
+  
             // 
             // ch4_status
             // 
@@ -605,33 +631,6 @@
             this.ethernet.UseVisualStyleBackColor = true;
             this.ethernet.Click += new System.EventHandler(this.ethernet_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.disc_ch1);
-            this.groupBox1.Controls.Add(this.com_ports_ch1);
-            this.groupBox1.Controls.Add(this.baud_rate_ch1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.ch1_status);
-            this.groupBox1.Controls.Add(this.conn_ch1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 14);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 155);
-            this.groupBox1.TabIndex = 47;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Serial Port 1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // ch1_status
-            // 
-            this.ch1_status.AutoSize = true;
-            this.ch1_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ch1_status.Location = new System.Drawing.Point(9, 17);
-            this.ch1_status.Name = "ch1_status";
-            this.ch1_status.Size = new System.Drawing.Size(0, 13);
-            this.ch1_status.TabIndex = 39;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.disc_ch2);
@@ -665,7 +664,7 @@
             this.groupBox3.TabIndex = 49;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Serial Port 3";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+
             // 
             // groupBox4
             // 
@@ -771,12 +770,12 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(groupBox1);
             this.Name = "Form1";
             this.Text = "Data Recorder";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -799,7 +798,6 @@
         private System.Windows.Forms.ComboBox com_ports_ch1;
         private System.Windows.Forms.ComboBox baud_rate_ch1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button conn_ch1;
         private System.Windows.Forms.Button disc_ch1;
         private System.Windows.Forms.Button conn_ch2;
@@ -843,7 +841,6 @@
         private System.Windows.Forms.Label ch5_status;
         private System.Windows.Forms.Label ch6_status;
         private System.Windows.Forms.Button ethernet;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label ch1_status;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

@@ -21,12 +21,13 @@ namespace DataRecorder
     public partial class Form1 : Form
 
     {
+        // Folder path for the recorded text files. Replace with the data recorder PC path.
         string folder_path = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy");
 
-
+        // UDP Client object
         UdpClient Client;
 
-        // Serial  Text Files
+        // Serial  Text Files for 6 channels
         FileStream objStreamWriter_ch1;
         FileStream objStreamWriter_ch2;
         FileStream objStreamWriter_ch3;
@@ -34,7 +35,7 @@ namespace DataRecorder
         FileStream objStreamWriter_ch5;
         FileStream objStreamWriter_ch6;
 
-        // UDP Text Files
+        // UDP Text Files for 2 IPs
         FileStream objStreamWriter_eth1;
         FileStream objStreamWriter_eth2;
 
@@ -84,13 +85,7 @@ namespace DataRecorder
             objStreamWriter_eth1.Flush();
             Client.BeginReceive(new AsyncCallback(recv), null);
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         private void conn_ch1_Click(object sender, EventArgs e)
         {
             try
@@ -251,10 +246,8 @@ namespace DataRecorder
                 int count_ch1 = serialport_ch1.BytesToRead;
                 byte[] data_ch1 = new byte[count_ch1];
                 serialport_ch1.Read(data_ch1, 0, count_ch1);
-
                 objStreamWriter_ch1.Write(data_ch1, 0, data_ch1.Length);
                 objStreamWriter_ch1.Flush();
-
             }
             catch (Exception ex)
             {
@@ -268,7 +261,6 @@ namespace DataRecorder
                 int count_ch2 = serialport_ch2.BytesToRead;
                 byte[] data_ch2 = new byte[count_ch2];
                 serialport_ch2.Read(data_ch2, 0, count_ch2);
-
                 objStreamWriter_ch2.Write(data_ch2, 0, data_ch2.Length);
                 objStreamWriter_ch2.Flush();
             }
@@ -284,7 +276,6 @@ namespace DataRecorder
                 int count_ch3 = serialport_ch3.BytesToRead;
                 byte[] data_ch3 = new byte[count_ch3];
                 serialport_ch3.Read(data_ch3, 0, count_ch3);
-
                 objStreamWriter_ch3.Write(data_ch3, 0, data_ch3.Length);
                 objStreamWriter_ch3.Flush();
             }
@@ -300,7 +291,6 @@ namespace DataRecorder
                 int count_ch4 = serialport_ch4.BytesToRead;
                 byte[] data_ch4 = new byte[count_ch4];
                 serialport_ch4.Read(data_ch4, 0, count_ch4);
-
                 objStreamWriter_ch4.Write(data_ch4, 0, data_ch4.Length);
                 objStreamWriter_ch4.Flush();
             }
@@ -316,7 +306,6 @@ namespace DataRecorder
                 int count_ch5 = serialport_ch5.BytesToRead;
                 byte[] data_ch5 = new byte[count_ch5];
                 serialport_ch5.Read(data_ch5, 0, count_ch5);
-
                 objStreamWriter_ch5.Write(data_ch5, 0, data_ch5.Length);
                 objStreamWriter_ch5.Flush();
             }
@@ -332,7 +321,6 @@ namespace DataRecorder
                 int count_ch6 = serialport_ch6.BytesToRead;
                 byte[] data_ch6 = new byte[count_ch6];
                 serialport_ch6.Read(data_ch6, 0, count_ch6);
-
                 objStreamWriter_ch6.Write(data_ch6, 0, data_ch6.Length);
                 objStreamWriter_ch6.Flush();
             }
@@ -349,7 +337,6 @@ namespace DataRecorder
                 serialport_ch1.Close();
                 ch1_status.Text = "Disconnected";
                 ch1_status.ForeColor = System.Drawing.Color.Red;
-
             }
         }
         private void disc_ch2_Click(object sender, EventArgs e)
@@ -419,12 +406,9 @@ namespace DataRecorder
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-        private void data_in_ch1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         void baud_rate_selection()
         {
+            // At 9 index the baud rate is 38400.
             baud_rate_ch1.SelectedIndex = 9;
             baud_rate_ch2.SelectedIndex = 9;
             baud_rate_ch3.SelectedIndex = 9;
@@ -444,72 +428,5 @@ namespace DataRecorder
                 com_ports_ch6.SelectedIndex = 5;
             }
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void baud_rate_ch1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void com_ports_ch2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ch2_status_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ch3_status_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void baud_rate_ch3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void com_ports_ch3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void baud_rate_ch4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-   
     }
 }
