@@ -86,9 +86,13 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.eth_port_2 = new System.Windows.Forms.TextBox();
+            this.ethernet_2 = new System.Windows.Forms.Button();
             this.eth_label = new System.Windows.Forms.Label();
             this.eth_port = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.eth_label_2 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
             label2 = new System.Windows.Forms.Label();
             groupBox1.SuspendLayout();
@@ -612,7 +616,7 @@
             // ethernet
             // 
             this.ethernet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ethernet.Location = new System.Drawing.Point(246, 34);
+            this.ethernet.Location = new System.Drawing.Point(246, 32);
             this.ethernet.Name = "ethernet";
             this.ethernet.Size = new System.Drawing.Size(85, 23);
             this.ethernet.TabIndex = 45;
@@ -707,6 +711,10 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.eth_label_2);
+            this.groupBox7.Controls.Add(this.label14);
+            this.groupBox7.Controls.Add(this.eth_port_2);
+            this.groupBox7.Controls.Add(this.ethernet_2);
             this.groupBox7.Controls.Add(this.eth_label);
             this.groupBox7.Controls.Add(this.eth_port);
             this.groupBox7.Controls.Add(this.label13);
@@ -714,10 +722,40 @@
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(12, 497);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(452, 83);
+            this.groupBox7.Size = new System.Drawing.Size(452, 118);
             this.groupBox7.TabIndex = 53;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Ethernet";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(9, 76);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 13);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "PORT 2:";
+            // 
+            // eth_port_2
+            // 
+            this.eth_port_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eth_port_2.Location = new System.Drawing.Point(82, 73);
+            this.eth_port_2.Name = "eth_port_2";
+            this.eth_port_2.Size = new System.Drawing.Size(120, 20);
+            this.eth_port_2.TabIndex = 56;
+            this.eth_port_2.Text = "22222";
+            // 
+            // ethernet_2
+            // 
+            this.ethernet_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ethernet_2.Location = new System.Drawing.Point(246, 71);
+            this.ethernet_2.Name = "ethernet_2";
+            this.ethernet_2.Size = new System.Drawing.Size(85, 23);
+            this.ethernet_2.TabIndex = 55;
+            this.ethernet_2.Text = "Connect";
+            this.ethernet_2.UseVisualStyleBackColor = true;
+            this.ethernet_2.Click += new System.EventHandler(this.ethernet_2_Click);
             // 
             // eth_label
             // 
@@ -741,17 +779,26 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 39);
+            this.label13.Location = new System.Drawing.Point(9, 37);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 54;
-            this.label13.Text = "PORT:";
+            this.label13.Text = "PORT 1:";
+            // 
+            // eth_label_2
+            // 
+            this.eth_label_2.AutoSize = true;
+            this.eth_label_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eth_label_2.Location = new System.Drawing.Point(9, 58);
+            this.eth_label_2.Name = "eth_label_2";
+            this.eth_label_2.Size = new System.Drawing.Size(0, 13);
+            this.eth_label_2.TabIndex = 58;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 598);
+            this.ClientSize = new System.Drawing.Size(479, 627);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -842,6 +889,10 @@
         private System.Windows.Forms.TextBox eth_port;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label eth_label;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox eth_port_2;
+        private System.Windows.Forms.Button ethernet_2;
+        private System.Windows.Forms.Label eth_label_2;
     }
 }
 

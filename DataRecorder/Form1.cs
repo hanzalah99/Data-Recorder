@@ -26,7 +26,8 @@ namespace DataRecorder
         string folder_path = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy");
 
         // UDP Client object
-        UdpClient Client;
+        UdpClient Client; 
+        UdpClient Client2;
 
         // Serial  Text Files for 6 channels
         FileStream objStreamWriter_ch1;
@@ -75,18 +76,29 @@ namespace DataRecorder
                 conn_ch5.PerformClick();
                 conn_ch6.PerformClick();
                 ethernet.PerformClick();
+                ethernet_2.PerformClick();
             }
         }
         void recv(IAsyncResult res)
         {
-            IPEndPoint RemoteIP = new IPEndPoint(IPAddress.Any, 60240);
+            IPEndPoint RemoteIP = new IPEndPoint(IPAddress.Any, Convert.ToInt32(eth_port.Text));
             byte[] recieved_udp = Client.EndReceive(res, ref RemoteIP);
 
             objStreamWriter_eth1.Write(recieved_udp, 0, recieved_udp.Length);
             objStreamWriter_eth1.Flush();
             Client.BeginReceive(new AsyncCallback(recv), null);
         }
-       
+
+        void recv2(IAsyncResult res2)
+        {
+            IPEndPoint RemoteIP2 = new IPEndPoint(IPAddress.Any, Convert.ToInt32(eth_port_2.Text));
+            byte[] recieved_udp2 = Client2.EndReceive(res2, ref RemoteIP2);
+
+            objStreamWriter_eth2.Write(recieved_udp2, 0, recieved_udp2.Length);
+            objStreamWriter_eth2.Flush();
+            Client2.BeginReceive(new AsyncCallback(recv2), null);
+        }
+
         private void conn_ch1_Click(object sender, EventArgs e)
         {
             try
@@ -407,7 +419,7 @@ namespace DataRecorder
             try
             {
                 // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
-                string pathfile_ethernet = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
+                string pathfile_ethernet = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP 1.txt";
                 //string pathfile_ethernet = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
                 objStreamWriter_eth1 = new FileStream(pathfile_ethernet, FileMode.Create, FileAccess.Write);
                 Client = new UdpClient(Convert.ToInt32(eth_port.Text));  // Port Number
@@ -420,6 +432,27 @@ namespace DataRecorder
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+        }
+
+        private void ethernet_2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // replace the text file path with the text files folder path of data recorder PC ==> e.g @"C:\Users\Data Recorder\Desktop\"
+                string pathfile_ethernet_2 = folder_path + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP 2.txt";
+                //string pathfile_ethernet = @"C:\Users\Hanzalah Qayyum\Desktop\" + DateTime.Now.ToString("dd-MM-yyyy") + "/" + DateTime.Now.ToString("HH.mm.ss") + " UDP.txt";
+                objStreamWriter_eth2 = new FileStream(pathfile_ethernet_2, FileMode.Create, FileAccess.Write);
+                Client2 = new UdpClient(Convert.ToInt32(eth_port_2.Text));  // Port Number
+                Client2.BeginReceive(new AsyncCallback(recv2), null);
+                eth_label_2.Text = "Connected";
+                eth_label_2.ForeColor = System.Drawing.Color.Green;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+
         }
         void baud_rate_selection()
         {
