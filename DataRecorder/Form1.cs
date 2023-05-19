@@ -37,7 +37,7 @@ namespace DataRecorder
         FileStream objStreamWriter_ch5;
         FileStream objStreamWriter_ch6;
 
-        // UDP Text Files for 2 IPs
+        // UDP Text Files for 2 Ports
         FileStream objStreamWriter_eth1;
         FileStream objStreamWriter_eth2;
 
